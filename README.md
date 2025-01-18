@@ -1,62 +1,77 @@
 # DO-NOT-EXECUTE Script
-======================
 
-## Description
+A simple Python script to delete all files and directories within the current working directory.
 
-This script is designed to delete every file in the current working directory.
+**Table of Contents**
+-----------------
 
-## Usage
+*   [Description](#description)
+*   [Usage](#usage)
+*   [Installation](#installation)
+*   [Requirements](#requirements)
+*   [License](#license)
+*   [Contributing](#contributing)
 
-To use this script, simply run it in the directory where you want to delete files. **Note:** This script will delete every file in the current working directory without prompting for confirmation. Use with caution!
+**Description**
+------------
 
-## Code Explanation
+This script is designed to delete all files and directories within the current working directory. It iterates through each item in the directory, checks if it's a file or directory, and attempts to delete it.
 
-### Variables and Functions
+**Usage**
+---------
 
-#### `current_dir`
+To use this script, simply execute it in the directory you want to clean up. The script will delete all files and directories within the current working directory.
 
-* Type: string
-* Description: The current working directory of the script.
+**Installation**
+------------
 
-#### `files`
+1.  Clone the repository using `git clone https://github.com/DRACULA1729/DO-NOT-EXECUTE.git`
+2.  Navigate to the cloned repository using `cd DO-NOT-EXECUTE`
+3.  Run the script using `python DO_NOT_EXECUTE.py`
 
-* Type: list
-* Description: A list of all files in the current working directory.
+**Requirements**
+------------
 
-#### `os.listdir(current_dir)`
+*   Python 3.x
+*   `os` and `shutil` modules (included with Python)
 
-* Function: Returns a list of all files and directories in the specified directory.
-* Parameters: `current_dir` (string) - The directory to list files from.
-* Returns: A list of file and directory names.
+**License**
+-------
 
-#### `os.path.join(current_dir, f)`
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-* Function: Joins a directory path with a file name to create a full file path.
-* Parameters: `current_dir` (string) - The directory path, `f` (string) - The file name.
-* Returns: A full file path (string).
+**Contributing**
+------------
 
-#### `os.path.isfile(os.path.join(current_dir, f))`
+Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request.
 
-* Function: Checks if a file exists at the specified path.
-* Parameters: `os.path.join(current_dir, f)` (string) - The full file path.
-* Returns: `True` if the file exists, `False` otherwise.
+**Warning**
+----------
 
-#### `os.remove(os.path.join(current_dir, file))`
+This script permanently deletes files and directories without prompting for confirmation. Use with caution.
 
-* Function: Deletes a file at the specified path.
-* Parameters: `os.path.join(current_dir, file)` (string) - The full file path.
-* Returns: None
+**Example Output**
+-----------------
 
-### Script Flow
+```
+Deleting file example.txt...
+Deleting directory example_dir...
+Deleted all files and folders in the folder!
+```
 
-1. The script gets the current working directory using `os.path.dirname(os.path.abspath(__file__))`.
-2. It lists all files in the current directory using `os.listdir(current_dir)`.
-3. It filters the list to only include files (not directories) using `os.path.isfile(os.path.join(current_dir, f))`.
-4. It iterates over the list of files, printing a message for each file indicating that it is being deleted.
-5. It attempts to delete each file using `os.remove(os.path.join(current_dir, file))`.
-6. If an error occurs while deleting a file, it catches the `OSError` exception and prints an error message.
-7. Finally, it prints a success message indicating that every other file in the folder has been deleted.
+**Author**
+-------
 
-## Warning USE IT WITH CAUTION!!!!
+[Sushant Pandey](https://github.com/DRACULA1729)
 
-This script will delete every file in the current working directory without prompting for confirmation. Use with caution!
+**Acknowledgments**
+----------------
+
+*   This script was created using the Python programming language and its built-in modules.
+
+**Changelog**
+------------
+
+*   Initial release (v1.1)
+
+
