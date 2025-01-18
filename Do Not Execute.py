@@ -1,14 +1,28 @@
 import os
+import shutil
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-files = [f for f in os.listdir(current_dir) if os.path.isfile(os.path.join(current_dir, f))]
 
-for i, file in enumerate(files):
-      
-        print(f'Deleting {i}th file ',file,'...........................')
+for item in os.listdir(current_dir):
+    item_path = os.path.join(current_dir, item)
+    
+    if os.path.isfile(item_path):
+        print(f'Deleting file {item}...')
         try:
-            os.remove(os.path.join(current_dir, file))
+            os.remove(item_path)
         except OSError as e:
-            print(f"Error deleting file {file}: {e}")
+            print(f"Error deleting file {item}: {e}")
+    elif os.path.isdir(item_path):
+        print(f'Deleting directory {item}...')
+        try:
+            shutil.rmtree(item_path)
+        except OSError as e:
+            print(f"Error deleting directory {item}: {e}")
+    else:
+        print(f'Deleting {item}...')
+        try:
+            os.remove(item_path) 
+        except OSError as e:
+            print(f"Error deleting {item}: {e}")
 
-print("Deleted every other file in the folder!")
+print("Deleted all files and folders in the folder!")
